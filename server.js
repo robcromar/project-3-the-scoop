@@ -1,3 +1,6 @@
+// ROB CROMAR
+// API from Sratch - Jan 16 cohort
+
 // database is let instead of const to allow us to modify it in test.js
 let database = {
   users: {},
