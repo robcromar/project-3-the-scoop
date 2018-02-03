@@ -1,0 +1,13 @@
+
+var readYaml = require('read-Yaml');
+
+
+
+var database = {};
+
+database = readYaml.sync('scoop.yml', function(err, data) {
+  if (err) throw err;
+  console.log('errdata >> '+ data);
+});
+
+console.log('database >> ' + database);
