@@ -243,11 +243,35 @@ function downvoteArticle(url, request) {
 }
 
 function getComments(url, request) {
+  const response = {};
 
+  response.status = 200;
+  response.body = {
+    comments: Object.keys(database.comments)
+        .map(commentId => database.comments[commentId])
+        .filter(comment => comment)
+        .sort((comment1, comment2) => comment2.id - comment1.id)
+  };
+
+  return response;
 }
 
 function getComment(url, request ) {
+  const id = Number(url.split('/').filter(segment => segment)[1]);
+  const comment = database.comments[id];
+  const response = {};
 
+  if (comment) {
+
+    response.body = {comment: comment};
+    response.status = 200;
+  } else if (id) {
+    response.status = 404;
+  } else {
+    response.status = 400;
+  }
+
+  return response;
 }
 
 function createComment( url, request ) {
