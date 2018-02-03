@@ -10,15 +10,31 @@ users:
     articleIds: []
     commentIds:
       - 1
+  chester:
+    username: chester
+    articleIds: []
+    commentIds:
+      - 2
+  fran:
+    username: fran
+    articleIds: []
+    commentIds: []
+  flippy:
+    username: flippy
+    articleIds:
+      - 3
+    commentIds: []
 articles:
   '1':
     id: 1
     title: This guy is a dick
     url: 'https://www.cnn.com/2018/02/03/politics/donald-trump-memo/index.html'
     username: roberto
-    commentIds: []
+    commentIds:
+      - 2
     upvotedBy: []
     downvotedBy: []
+    comments: []
   '2':
     id: 2
     title: This one too
@@ -38,7 +54,25 @@ articles:
         upvotedBy:
           - jack frost
         downvotedBy: []
-nextArticleId: 3
+  '3':
+    id: 3
+    title: Birds of a Feather
+    url: >-
+      https://www.huffingtonpost.com/entry/sean-hannity-pee-tape_us_5a73f69de4b0905433b2ba6d
+    username: flippy
+    commentIds: []
+    upvotedBy: []
+    downvotedBy: []
+nextArticleId: 4
 comments:
   '1': *ref_0
-nextCommentId: 2
+  '2':
+    id: 2
+    body: greatest ever - your stoopider
+    articleId: 1
+    username: chester
+    upvotedBy:
+      - chester
+      - fran
+    downvotedBy: []
+nextCommentId: 3
