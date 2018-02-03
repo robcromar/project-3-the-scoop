@@ -1,15 +1,12 @@
 // ROB CROMAR
-// API from Sratch - Jan 16 cohort
+// API from Scratch - Jan 16 cohort
 // Work start date - 28 Jan 2018
 
 // database is let instead of const to allow us to modify it in test.js
-let database = {
-  users: {},
-  articles: {},
-  nextArticleId: 1,
-  comments: {},
-  nextCommentId: 1
-};
+const yaml = require('write-yaml');
+const readYaml = require('read-yaml');
+
+let database = {};
 
 const routes = {
   '/users': {
@@ -50,6 +47,21 @@ const routes = {
   }
 
 };
+
+function loadDatabase() {
+  database = readYaml.sync('.scoop.yml', function(err, data) {
+    if (err) throw err;
+    console.log(data);
+  });
+  return;
+}
+
+function saveDatabase() {
+  yaml('.scoop.yml', database, function(err) {
+    console.log(err);
+  });
+  return;
+}
 
 function getUser(url, request) {
   const username = url.split('/').filter(segment => segment)[1];

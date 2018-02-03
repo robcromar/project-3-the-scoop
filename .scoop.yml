@@ -1,0 +1,44 @@
+users:
+  roberto:
+    username: roberto
+    articleIds:
+      - 1
+      - 2
+    commentIds: []
+  jack frost:
+    username: jack frost
+    articleIds: []
+    commentIds:
+      - 1
+articles:
+  '1':
+    id: 1
+    title: This guy is a dick
+    url: 'https://www.cnn.com/2018/02/03/politics/donald-trump-memo/index.html'
+    username: roberto
+    commentIds: []
+    upvotedBy: []
+    downvotedBy: []
+  '2':
+    id: 2
+    title: This one too
+    url: >-
+      http://abcnews.go.com/Politics/pence-visit-pennsylvania-gop-stronghold-targeted-democrats-special/story?id=52784865
+    username: roberto
+    commentIds:
+      - 1
+    upvotedBy: []
+    downvotedBy: []
+    comments:
+      - &ref_0
+        id: 1
+        body: bigger dick than the other one
+        articleId: 2
+        username: jack frost
+        upvotedBy:
+          - jack frost
+        downvotedBy: []
+nextArticleId: 3
+comments:
+  '1': *ref_0
+nextCommentId: 2
